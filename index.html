@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Doe sangue!</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 </head>
@@ -49,22 +49,15 @@
       <h2>Últimos <span>doadores</span></h2>
 
       <section class="donors">
-        <div class="donor">
-          <div class="blood">AB+</div>
-          <p>Mayk Britto</p>
-        </div>
-        <div class="donor">
-          <div class="blood">B+</div>
-          <p>João Muller</p>
-        </div>
-        <div class="donor">
-          <div class="blood">A+</div>
-          <p>Lucas silva</p>
-        </div>
-        <div class="donor">
-          <div class="blood">O+</div>
-          <p>Fernanda Rodrigues</p>
-        </div>
+
+        {% for donor in dornors %}
+
+          <div class="donor">
+            <div class="blood">{{donors.blood}}</div>
+            <p>{{donors.name}}</p>
+          </div>
+
+        {%endfor%}
 
       </section>
     </main>

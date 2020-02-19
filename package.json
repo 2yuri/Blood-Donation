@@ -1,0 +1,25 @@
+{
+  "name": "Blood-Donation",
+  "version": "1.0.0",
+  "description": "Programa realizado pelo curso maratona Dev by rockeatseat",
+  "main": "script.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperyuri/Blood-Donation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyperyuri/Blood-Donation/issues"
+  },
+  "homepage": "https://github.com/hyperyuri/Blood-Donation#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
+    "nunjucks": "^3.2.0"
+  }
+}
