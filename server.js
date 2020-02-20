@@ -47,7 +47,16 @@ server.get("/", function(req, res) {
   FETCH FIRST 8 ROWS ONLY`, function(err, result){
     if (err) return res.send("Erro no db")
 
+    result.rows.forEach(testei)
+    
+
+    function testei(item, index, arr){
+      arr[index].create_at = item.create_at.toLocaleDateString('en-GB')
+    }
+
+
     const donors = result.rows
+
     return res.render("index.html", { donors })
   })
 
