@@ -23,7 +23,7 @@
 
     <section class="form hide">
       <h2>Entre na lista de doadores</h2>
-      <form action="/">
+      <form action="/" method="POST">
         <input
           type="text"
           name="name"    
@@ -32,13 +32,13 @@
         
         <input
           type="text"
-          name="name"    
+          name="email"    
           placeholder="Email"
         >
         
         <input
           type="text"
-          name="name"    
+          name="blood"    
           placeholder="Tipo sanguíneo"
         >
         <button>Quero ajudar!</button>
@@ -50,21 +50,19 @@
 
       <section class="donors">
 
-        {% for donor in dornors %}
 
-          <div class="donor">
-            <div class="blood">{{donors.blood}}</div>
-            <p>{{donors.name}}</p>
-          </div>
-
-        {%endfor%}
-
+        {%for donor in donors%}
+            <div class="donor">
+                <div class="blood">{{donor.blood}}</div>
+                <p>{{donor.name}}</p>
+            </div>
+            {%endfor%}
       </section>
     </main>
 
     <footer>Com 💝 Yuri</footer>
 
-    <script src="script.js"></script>
+    <script src="/scripts.js"></script>
 
 
   </body>
