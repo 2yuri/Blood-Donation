@@ -114,14 +114,16 @@ form input, form button {
   /*bordas*/
   border-radius: 4px;
   border: 1px #ffffff88 solid;
+  /* color: #ffffff88; */
 }
 
 form input{
   background-color: transparent;
+  color: #ffffffcc;
 }
 
 form input::placeholder{
-  color: #ffffffaa;
+  color: #ffffff88;
 }
 
 form button {
