@@ -51,7 +51,7 @@ server.get("/", function(req, res) {
     
 
     function testei(item, index, arr){
-      arr[index].create_at = item.create_at.toLocaleDateString('en-GB')
+      arr[index].create_at = item.create_at.getUTCDate() + '/' + (item.create_at.getMonth() + 1) + '/' +  item.create_at.getFullYear()
     }
 
 
