@@ -30,7 +30,21 @@ nunjucks.configure("./", {
 // configurar a apresentação da página
 server.get("/", function(req, res) {
 
-  db.query("SELECT * FROM donors", function(err, result){
+  db.query(`SELECT DISTINCT ON
+  (BLOOD) BLOOD,
+  NAME,
+  EMAIL,
+  CREATE_AT
+  FROM DONORS
+  WHERE ID IN 
+  
+  (
+  SELECT ID FROM DONORS ORDER BY ID DESC
+  )
+  
+  GROUP BY NAME, EMAIL, BLOOD, ID 
+  ORDER BY  BLOOD DESC, ID DESC
+  FETCH FIRST 8 ROWS ONLY`, function(err, result){
     if (err) return res.send("Erro no db")
 
     const donors = result.rows
@@ -41,9 +55,13 @@ server.get("/", function(req, res) {
 
 server.post("/", function(req, res) {
   //pegar dados do formulario
+
+  const blood = req.body.blood
   const name = req.body.name
   const email = req.body.email
-  const blood = req.body.blood
+  
+  
+  
 
   if (name == "" || email == "" || blood == "" ) {
     return res.send("Todos os campos são obrigatórios.")
@@ -52,10 +70,12 @@ server.post("/", function(req, res) {
 
   //push - coloca valor dentro do db
   const query = `
-  INSERT INTO donors ("name", "email", "blood")
+  INSERT INTO donors ("blood", "name", "email")
   VALUES ($1, $2, $3)`
 
-  const values = [name, email, blood]
+ 
+
+  const values = [blood, name, email, ]
 
   db.query(query, values, function(err) {
     //fluxo de erro
